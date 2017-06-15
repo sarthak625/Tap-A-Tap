@@ -3,13 +3,18 @@
 <head>
 	<title>Coloring</title>
 	<link rel="stylesheet" href="styles.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.js"></script>
 	<script type="text/javascript" src="assets/lib/paper-full.js"></script>
 	<script type="text/paperscript" canvas="myCanvas">
+
+		var sound = new Howl({
+		src: ['assets/sounds/bubbles.mp3']
+		});
 		
-		var circles = [];
-		
+		var circles = [];		
 
 		function onKeyDown(event){
+			sound.play();
 			var maxPoint = new Point(view.size.width,view.size.height);
 			var randomPoint = Point.random();
 			var point = maxPoint * randomPoint;
